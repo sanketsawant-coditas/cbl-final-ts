@@ -112,6 +112,7 @@ createTeam(name: string, playerIds: number[]): this {
   renameTeam(teamId: number, newName: string): this {
     const team = this.teams.find(t => t.id === teamId);
     if (!team) throw new Error(`Team with id ${teamId} not found`);
+
     team.name = newName;
     return this;
   }
@@ -119,15 +120,20 @@ createTeam(name: string, playerIds: number[]): this {
   replacePlayerInTeam(teamId: number, oldPlayerId: number, newPlayerId: number): this {
     const team = this.teams.find(t => t.id === teamId);
     if (!team) throw new Error(`Team ${teamId} not found`);
+
     const oldIndex = team.players.findIndex(p => p.id === oldPlayerId);
     if (oldIndex === -1) throw new Error(`Player ${oldPlayerId} not in team`);
+
     const newPlayer = this.employees.find(e => e.id === newPlayerId);
     if (!newPlayer) throw new Error(`New player ${newPlayerId} not found`);
+
     const alreadyInTeam = this.teams.some(t => t.id !== teamId && t.players.some(p => p.id === newPlayerId));
-    if (alreadyInTeam) throw new Error(`Player ${newPlayer.name} is already in another team`);
+    if (alreadyInTeam) throw new Error(`Player ${newPlayer.id} :${newPlayer.name}  is already in another team`);
     team.players[oldIndex] = newPlayer;
+
     team.males = team.players.filter(p => p.gender === 'M');
     team.females = team.players.filter(p => p.gender === 'F');
+
     if (team.males.length !== MALES_PER_TEAM || team.females.length !== FEMALES_PER_TEAM) {
       throw new Error(`After replacement, team ${team.name} has ${team.males.length}M, ${team.females.length}F – need exactly ${MALES_PER_TEAM}M/${FEMALES_PER_TEAM}F`);
     }
@@ -137,11 +143,15 @@ createTeam(name: string, playerIds: number[]): this {
   removePlayerFromTeam(teamId: number, playerId: number): this {
     const team = this.teams.find(t => t.id === teamId);
     if (!team) throw new Error(`Team ${teamId} not found`);
+
     const index = team.players.findIndex(p => p.id === playerId);
     if (index === -1) throw new Error(`Player ${playerId} not in team`);
+
     team.players.splice(index, 1);
+
     team.males = team.players.filter(p => p.gender === 'M');
     team.females = team.players.filter(p => p.gender === 'F');
+
     if (team.males.length !== MALES_PER_TEAM || team.females.length !== FEMALES_PER_TEAM) {
       console.warn(`Team ${team.name} now has ${team.males.length}M, ${team.females.length}F – not a full team.`);
     }
@@ -166,24 +176,33 @@ createTeam(name: string, playerIds: number[]): this {
   }
 
   // ---------- Group creation (throws on validation error) ----------
-  createGroups(): this {
-    const { completeGroups } = this.validateTeams();
-    const usableTeams = shuffle(this.teams).slice(0, completeGroups * TEAMS_PER_GROUP);
-    this.groups = chunk(usableTeams, TEAMS_PER_GROUP).map((groupTeams, i) => ({
-      id: i + 1,
-      name: `Group ${String.fromCharCode(65 + i)}`,
-      teams: groupTeams,
-      standings: groupTeams.map(t => ({
-        team: t,
-        played: 0,
-        wins: 0,
-        losses: 0,
-        points: 0,
-        tiesWon: 0,
-      })),
-    }));
-    return this;
+createGroups(): this {
+  // Instead of requiring MIN_GROUPS (2), just require at least 1 group (4 teams)
+  if (this.teams.length < TEAMS_PER_GROUP) {
+    throw new CBLError(
+      `Not enough teams to form a single group. Need at least ${TEAMS_PER_GROUP} teams, but only ${this.teams.length} available.`,
+      ERROR.NOT_ENOUGH_TEAMS,
+      { teamsFormed: this.teams.length, minRequired: TEAMS_PER_GROUP }
+    );
   }
+
+  const completeGroups = Math.floor(this.teams.length / TEAMS_PER_GROUP);
+  const usableTeams = shuffle(this.teams).slice(0, completeGroups * TEAMS_PER_GROUP);
+  this.groups = chunk(usableTeams, TEAMS_PER_GROUP).map((groupTeams, i) => ({
+    id: i + 1,
+    name: `Group ${String.fromCharCode(65 + i)}`,
+    teams: groupTeams,
+    standings: groupTeams.map(t => ({
+      team: t,
+      played: 0,
+      wins: 0,
+      losses: 0,
+      points: 0,
+      tiesWon: 0,
+    })),
+  }));
+  return this;
+}
 
   getTeams(): Team[] {
     return this.teams;
@@ -203,7 +222,7 @@ createTeam(name: string, playerIds: number[]): this {
         totalGroups: this.groups.length,
         totalPlayers: this.teams.reduce((sum, t) => sum + t.players.length, 0)
       }
-    };
+    }
     const filePath = path.join(process.cwd(), filename);
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
     return this;
