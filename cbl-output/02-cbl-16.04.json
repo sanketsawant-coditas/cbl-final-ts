@@ -1,0 +1,1668 @@
+{
+  "teams": [
+    {
+      "id": 1,
+      "name": "Team 1",
+      "players": [
+        {
+          "id": 27,
+          "name": "Aditya Joshi",
+          "email": "aditya.joshi27@coditas.com",
+          "phone": "9328699076",
+          "gender": "M"
+        },
+        {
+          "id": 23,
+          "name": "Rohan Shah",
+          "email": "rohan.shah23@coditas.com",
+          "phone": "9879427418",
+          "gender": "M"
+        },
+        {
+          "id": 10,
+          "name": "Aarav Nair",
+          "email": "aarav.nair10@coditas.com",
+          "phone": "9766977859",
+          "gender": "F"
+        },
+        {
+          "id": 2,
+          "name": "Karan Kulkarni",
+          "email": "karan.kulkarni2@coditas.com",
+          "phone": "9307629262",
+          "gender": "F"
+        }
+      ],
+      "males": [
+        {
+          "id": 27,
+          "name": "Aditya Joshi",
+          "email": "aditya.joshi27@coditas.com",
+          "phone": "9328699076",
+          "gender": "M"
+        },
+        {
+          "id": 23,
+          "name": "Rohan Shah",
+          "email": "rohan.shah23@coditas.com",
+          "phone": "9879427418",
+          "gender": "M"
+        }
+      ],
+      "females": [
+        {
+          "id": 10,
+          "name": "Aarav Nair",
+          "email": "aarav.nair10@coditas.com",
+          "phone": "9766977859",
+          "gender": "F"
+        },
+        {
+          "id": 2,
+          "name": "Karan Kulkarni",
+          "email": "karan.kulkarni2@coditas.com",
+          "phone": "9307629262",
+          "gender": "F"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Team 2",
+      "players": [
+        {
+          "id": 3,
+          "name": "Vikram Mehta",
+          "email": "vikram.mehta3@coditas.com",
+          "phone": "9483607385",
+          "gender": "M"
+        },
+        {
+          "id": 1,
+          "name": "Neha Sharma",
+          "email": "neha.sharma1@coditas.com",
+          "phone": "9245333607",
+          "gender": "M"
+        },
+        {
+          "id": 24,
+          "name": "Aarav Sharma",
+          "email": "aarav.sharma24@coditas.com",
+          "phone": "9651508361",
+          "gender": "F"
+        },
+        {
+          "id": 14,
+          "name": "Aditya Shah",
+          "email": "aditya.shah14@coditas.com",
+          "phone": "9648522902",
+          "gender": "F"
+        }
+      ],
+      "males": [
+        {
+          "id": 3,
+          "name": "Vikram Mehta",
+          "email": "vikram.mehta3@coditas.com",
+          "phone": "9483607385",
+          "gender": "M"
+        },
+        {
+          "id": 1,
+          "name": "Neha Sharma",
+          "email": "neha.sharma1@coditas.com",
+          "phone": "9245333607",
+          "gender": "M"
+        }
+      ],
+      "females": [
+        {
+          "id": 24,
+          "name": "Aarav Sharma",
+          "email": "aarav.sharma24@coditas.com",
+          "phone": "9651508361",
+          "gender": "F"
+        },
+        {
+          "id": 14,
+          "name": "Aditya Shah",
+          "email": "aditya.shah14@coditas.com",
+          "phone": "9648522902",
+          "gender": "F"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Team 3",
+      "players": [
+        {
+          "id": 19,
+          "name": "Sneha Nair",
+          "email": "sneha.nair19@coditas.com",
+          "phone": "9206516031",
+          "gender": "M"
+        },
+        {
+          "id": 5,
+          "name": "Sneha Sharma",
+          "email": "sneha.sharma5@coditas.com",
+          "phone": "9138392568",
+          "gender": "M"
+        },
+        {
+          "id": 26,
+          "name": "Pooja Mehta",
+          "email": "pooja.mehta26@coditas.com",
+          "phone": "9134787913",
+          "gender": "F"
+        },
+        {
+          "id": 18,
+          "name": "Vikram Joshi",
+          "email": "vikram.joshi18@coditas.com",
+          "phone": "9531073153",
+          "gender": "F"
+        }
+      ],
+      "males": [
+        {
+          "id": 19,
+          "name": "Sneha Nair",
+          "email": "sneha.nair19@coditas.com",
+          "phone": "9206516031",
+          "gender": "M"
+        },
+        {
+          "id": 5,
+          "name": "Sneha Sharma",
+          "email": "sneha.sharma5@coditas.com",
+          "phone": "9138392568",
+          "gender": "M"
+        }
+      ],
+      "females": [
+        {
+          "id": 26,
+          "name": "Pooja Mehta",
+          "email": "pooja.mehta26@coditas.com",
+          "phone": "9134787913",
+          "gender": "F"
+        },
+        {
+          "id": 18,
+          "name": "Vikram Joshi",
+          "email": "vikram.joshi18@coditas.com",
+          "phone": "9531073153",
+          "gender": "F"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Team 4",
+      "players": [
+        {
+          "id": 25,
+          "name": "Vikram Mehta",
+          "email": "vikram.mehta25@coditas.com",
+          "phone": "9567571054",
+          "gender": "M"
+        },
+        {
+          "id": 11,
+          "name": "Priya Shah",
+          "email": "priya.shah11@coditas.com",
+          "phone": "9243729634",
+          "gender": "M"
+        },
+        {
+          "id": 4,
+          "name": "Sneha Sharma",
+          "email": "sneha.sharma4@coditas.com",
+          "phone": "9590069560",
+          "gender": "F"
+        },
+        {
+          "id": 8,
+          "name": "Pooja Joshi",
+          "email": "pooja.joshi8@coditas.com",
+          "phone": "9160106614",
+          "gender": "F"
+        }
+      ],
+      "males": [
+        {
+          "id": 25,
+          "name": "Vikram Mehta",
+          "email": "vikram.mehta25@coditas.com",
+          "phone": "9567571054",
+          "gender": "M"
+        },
+        {
+          "id": 11,
+          "name": "Priya Shah",
+          "email": "priya.shah11@coditas.com",
+          "phone": "9243729634",
+          "gender": "M"
+        }
+      ],
+      "females": [
+        {
+          "id": 4,
+          "name": "Sneha Sharma",
+          "email": "sneha.sharma4@coditas.com",
+          "phone": "9590069560",
+          "gender": "F"
+        },
+        {
+          "id": 8,
+          "name": "Pooja Joshi",
+          "email": "pooja.joshi8@coditas.com",
+          "phone": "9160106614",
+          "gender": "F"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Team 5",
+      "players": [
+        {
+          "id": 13,
+          "name": "Isha Desai",
+          "email": "isha.desai13@coditas.com",
+          "phone": "9815720881",
+          "gender": "M"
+        },
+        {
+          "id": 31,
+          "name": "Sneha Desai",
+          "email": "sneha.desai31@coditas.com",
+          "phone": "9128178876",
+          "gender": "M"
+        },
+        {
+          "id": 32,
+          "name": "Aarav Mehta",
+          "email": "aarav.mehta32@coditas.com",
+          "phone": "9466377983",
+          "gender": "F"
+        },
+        {
+          "id": 30,
+          "name": "Sneha Singh",
+          "email": "sneha.singh30@coditas.com",
+          "phone": "9362686020",
+          "gender": "F"
+        }
+      ],
+      "males": [
+        {
+          "id": 13,
+          "name": "Isha Desai",
+          "email": "isha.desai13@coditas.com",
+          "phone": "9815720881",
+          "gender": "M"
+        },
+        {
+          "id": 31,
+          "name": "Sneha Desai",
+          "email": "sneha.desai31@coditas.com",
+          "phone": "9128178876",
+          "gender": "M"
+        }
+      ],
+      "females": [
+        {
+          "id": 32,
+          "name": "Aarav Mehta",
+          "email": "aarav.mehta32@coditas.com",
+          "phone": "9466377983",
+          "gender": "F"
+        },
+        {
+          "id": 30,
+          "name": "Sneha Singh",
+          "email": "sneha.singh30@coditas.com",
+          "phone": "9362686020",
+          "gender": "F"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Team 6",
+      "players": [
+        {
+          "id": 9,
+          "name": "Isha Sharma",
+          "email": "isha.sharma9@coditas.com",
+          "phone": "9478152023",
+          "gender": "M"
+        },
+        {
+          "id": 17,
+          "name": "Vikram Shah",
+          "email": "vikram.shah17@coditas.com",
+          "phone": "9979841576",
+          "gender": "M"
+        },
+        {
+          "id": 6,
+          "name": "Aarav Joshi",
+          "email": "aarav.joshi6@coditas.com",
+          "phone": "9975615742",
+          "gender": "F"
+        },
+        {
+          "id": 28,
+          "name": "Aarav Sharma",
+          "email": "aarav.sharma28@coditas.com",
+          "phone": "9835826153",
+          "gender": "F"
+        }
+      ],
+      "males": [
+        {
+          "id": 9,
+          "name": "Isha Sharma",
+          "email": "isha.sharma9@coditas.com",
+          "phone": "9478152023",
+          "gender": "M"
+        },
+        {
+          "id": 17,
+          "name": "Vikram Shah",
+          "email": "vikram.shah17@coditas.com",
+          "phone": "9979841576",
+          "gender": "M"
+        }
+      ],
+      "females": [
+        {
+          "id": 6,
+          "name": "Aarav Joshi",
+          "email": "aarav.joshi6@coditas.com",
+          "phone": "9975615742",
+          "gender": "F"
+        },
+        {
+          "id": 28,
+          "name": "Aarav Sharma",
+          "email": "aarav.sharma28@coditas.com",
+          "phone": "9835826153",
+          "gender": "F"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Team 7",
+      "players": [
+        {
+          "id": 29,
+          "name": "Karan Nair",
+          "email": "karan.nair29@coditas.com",
+          "phone": "9922758281",
+          "gender": "M"
+        },
+        {
+          "id": 7,
+          "name": "Pooja Desai",
+          "email": "pooja.desai7@coditas.com",
+          "phone": "9253020781",
+          "gender": "M"
+        },
+        {
+          "id": 22,
+          "name": "Sneha Mehta",
+          "email": "sneha.mehta22@coditas.com",
+          "phone": "9242895048",
+          "gender": "F"
+        },
+        {
+          "id": 12,
+          "name": "Neha Nair",
+          "email": "neha.nair12@coditas.com",
+          "phone": "9184482374",
+          "gender": "F"
+        }
+      ],
+      "males": [
+        {
+          "id": 29,
+          "name": "Karan Nair",
+          "email": "karan.nair29@coditas.com",
+          "phone": "9922758281",
+          "gender": "M"
+        },
+        {
+          "id": 7,
+          "name": "Pooja Desai",
+          "email": "pooja.desai7@coditas.com",
+          "phone": "9253020781",
+          "gender": "M"
+        }
+      ],
+      "females": [
+        {
+          "id": 22,
+          "name": "Sneha Mehta",
+          "email": "sneha.mehta22@coditas.com",
+          "phone": "9242895048",
+          "gender": "F"
+        },
+        {
+          "id": 12,
+          "name": "Neha Nair",
+          "email": "neha.nair12@coditas.com",
+          "phone": "9184482374",
+          "gender": "F"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Team 8",
+      "players": [
+        {
+          "id": 21,
+          "name": "Pooja Sharma",
+          "email": "pooja.sharma21@coditas.com",
+          "phone": "9988554160",
+          "gender": "M"
+        },
+        {
+          "id": 15,
+          "name": "Isha Singh",
+          "email": "isha.singh15@coditas.com",
+          "phone": "9870711887",
+          "gender": "M"
+        },
+        {
+          "id": 20,
+          "name": "Sneha Verma",
+          "email": "sneha.verma20@coditas.com",
+          "phone": "9540591431",
+          "gender": "F"
+        },
+        {
+          "id": 16,
+          "name": "Aarav Sharma",
+          "email": "aarav.sharma16@coditas.com",
+          "phone": "9718905860",
+          "gender": "F"
+        }
+      ],
+      "males": [
+        {
+          "id": 21,
+          "name": "Pooja Sharma",
+          "email": "pooja.sharma21@coditas.com",
+          "phone": "9988554160",
+          "gender": "M"
+        },
+        {
+          "id": 15,
+          "name": "Isha Singh",
+          "email": "isha.singh15@coditas.com",
+          "phone": "9870711887",
+          "gender": "M"
+        }
+      ],
+      "females": [
+        {
+          "id": 20,
+          "name": "Sneha Verma",
+          "email": "sneha.verma20@coditas.com",
+          "phone": "9540591431",
+          "gender": "F"
+        },
+        {
+          "id": 16,
+          "name": "Aarav Sharma",
+          "email": "aarav.sharma16@coditas.com",
+          "phone": "9718905860",
+          "gender": "F"
+        }
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "name": "Group A",
+      "teams": [
+        {
+          "id": 5,
+          "name": "Team 5",
+          "players": [
+            {
+              "id": 13,
+              "name": "Isha Desai",
+              "email": "isha.desai13@coditas.com",
+              "phone": "9815720881",
+              "gender": "M"
+            },
+            {
+              "id": 31,
+              "name": "Sneha Desai",
+              "email": "sneha.desai31@coditas.com",
+              "phone": "9128178876",
+              "gender": "M"
+            },
+            {
+              "id": 32,
+              "name": "Aarav Mehta",
+              "email": "aarav.mehta32@coditas.com",
+              "phone": "9466377983",
+              "gender": "F"
+            },
+            {
+              "id": 30,
+              "name": "Sneha Singh",
+              "email": "sneha.singh30@coditas.com",
+              "phone": "9362686020",
+              "gender": "F"
+            }
+          ],
+          "males": [
+            {
+              "id": 13,
+              "name": "Isha Desai",
+              "email": "isha.desai13@coditas.com",
+              "phone": "9815720881",
+              "gender": "M"
+            },
+            {
+              "id": 31,
+              "name": "Sneha Desai",
+              "email": "sneha.desai31@coditas.com",
+              "phone": "9128178876",
+              "gender": "M"
+            }
+          ],
+          "females": [
+            {
+              "id": 32,
+              "name": "Aarav Mehta",
+              "email": "aarav.mehta32@coditas.com",
+              "phone": "9466377983",
+              "gender": "F"
+            },
+            {
+              "id": 30,
+              "name": "Sneha Singh",
+              "email": "sneha.singh30@coditas.com",
+              "phone": "9362686020",
+              "gender": "F"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Team 2",
+          "players": [
+            {
+              "id": 3,
+              "name": "Vikram Mehta",
+              "email": "vikram.mehta3@coditas.com",
+              "phone": "9483607385",
+              "gender": "M"
+            },
+            {
+              "id": 1,
+              "name": "Neha Sharma",
+              "email": "neha.sharma1@coditas.com",
+              "phone": "9245333607",
+              "gender": "M"
+            },
+            {
+              "id": 24,
+              "name": "Aarav Sharma",
+              "email": "aarav.sharma24@coditas.com",
+              "phone": "9651508361",
+              "gender": "F"
+            },
+            {
+              "id": 14,
+              "name": "Aditya Shah",
+              "email": "aditya.shah14@coditas.com",
+              "phone": "9648522902",
+              "gender": "F"
+            }
+          ],
+          "males": [
+            {
+              "id": 3,
+              "name": "Vikram Mehta",
+              "email": "vikram.mehta3@coditas.com",
+              "phone": "9483607385",
+              "gender": "M"
+            },
+            {
+              "id": 1,
+              "name": "Neha Sharma",
+              "email": "neha.sharma1@coditas.com",
+              "phone": "9245333607",
+              "gender": "M"
+            }
+          ],
+          "females": [
+            {
+              "id": 24,
+              "name": "Aarav Sharma",
+              "email": "aarav.sharma24@coditas.com",
+              "phone": "9651508361",
+              "gender": "F"
+            },
+            {
+              "id": 14,
+              "name": "Aditya Shah",
+              "email": "aditya.shah14@coditas.com",
+              "phone": "9648522902",
+              "gender": "F"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Team 4",
+          "players": [
+            {
+              "id": 25,
+              "name": "Vikram Mehta",
+              "email": "vikram.mehta25@coditas.com",
+              "phone": "9567571054",
+              "gender": "M"
+            },
+            {
+              "id": 11,
+              "name": "Priya Shah",
+              "email": "priya.shah11@coditas.com",
+              "phone": "9243729634",
+              "gender": "M"
+            },
+            {
+              "id": 4,
+              "name": "Sneha Sharma",
+              "email": "sneha.sharma4@coditas.com",
+              "phone": "9590069560",
+              "gender": "F"
+            },
+            {
+              "id": 8,
+              "name": "Pooja Joshi",
+              "email": "pooja.joshi8@coditas.com",
+              "phone": "9160106614",
+              "gender": "F"
+            }
+          ],
+          "males": [
+            {
+              "id": 25,
+              "name": "Vikram Mehta",
+              "email": "vikram.mehta25@coditas.com",
+              "phone": "9567571054",
+              "gender": "M"
+            },
+            {
+              "id": 11,
+              "name": "Priya Shah",
+              "email": "priya.shah11@coditas.com",
+              "phone": "9243729634",
+              "gender": "M"
+            }
+          ],
+          "females": [
+            {
+              "id": 4,
+              "name": "Sneha Sharma",
+              "email": "sneha.sharma4@coditas.com",
+              "phone": "9590069560",
+              "gender": "F"
+            },
+            {
+              "id": 8,
+              "name": "Pooja Joshi",
+              "email": "pooja.joshi8@coditas.com",
+              "phone": "9160106614",
+              "gender": "F"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Team 3",
+          "players": [
+            {
+              "id": 19,
+              "name": "Sneha Nair",
+              "email": "sneha.nair19@coditas.com",
+              "phone": "9206516031",
+              "gender": "M"
+            },
+            {
+              "id": 5,
+              "name": "Sneha Sharma",
+              "email": "sneha.sharma5@coditas.com",
+              "phone": "9138392568",
+              "gender": "M"
+            },
+            {
+              "id": 26,
+              "name": "Pooja Mehta",
+              "email": "pooja.mehta26@coditas.com",
+              "phone": "9134787913",
+              "gender": "F"
+            },
+            {
+              "id": 18,
+              "name": "Vikram Joshi",
+              "email": "vikram.joshi18@coditas.com",
+              "phone": "9531073153",
+              "gender": "F"
+            }
+          ],
+          "males": [
+            {
+              "id": 19,
+              "name": "Sneha Nair",
+              "email": "sneha.nair19@coditas.com",
+              "phone": "9206516031",
+              "gender": "M"
+            },
+            {
+              "id": 5,
+              "name": "Sneha Sharma",
+              "email": "sneha.sharma5@coditas.com",
+              "phone": "9138392568",
+              "gender": "M"
+            }
+          ],
+          "females": [
+            {
+              "id": 26,
+              "name": "Pooja Mehta",
+              "email": "pooja.mehta26@coditas.com",
+              "phone": "9134787913",
+              "gender": "F"
+            },
+            {
+              "id": 18,
+              "name": "Vikram Joshi",
+              "email": "vikram.joshi18@coditas.com",
+              "phone": "9531073153",
+              "gender": "F"
+            }
+          ]
+        }
+      ],
+      "standings": [
+        {
+          "team": {
+            "id": 5,
+            "name": "Team 5",
+            "players": [
+              {
+                "id": 13,
+                "name": "Isha Desai",
+                "email": "isha.desai13@coditas.com",
+                "phone": "9815720881",
+                "gender": "M"
+              },
+              {
+                "id": 31,
+                "name": "Sneha Desai",
+                "email": "sneha.desai31@coditas.com",
+                "phone": "9128178876",
+                "gender": "M"
+              },
+              {
+                "id": 32,
+                "name": "Aarav Mehta",
+                "email": "aarav.mehta32@coditas.com",
+                "phone": "9466377983",
+                "gender": "F"
+              },
+              {
+                "id": 30,
+                "name": "Sneha Singh",
+                "email": "sneha.singh30@coditas.com",
+                "phone": "9362686020",
+                "gender": "F"
+              }
+            ],
+            "males": [
+              {
+                "id": 13,
+                "name": "Isha Desai",
+                "email": "isha.desai13@coditas.com",
+                "phone": "9815720881",
+                "gender": "M"
+              },
+              {
+                "id": 31,
+                "name": "Sneha Desai",
+                "email": "sneha.desai31@coditas.com",
+                "phone": "9128178876",
+                "gender": "M"
+              }
+            ],
+            "females": [
+              {
+                "id": 32,
+                "name": "Aarav Mehta",
+                "email": "aarav.mehta32@coditas.com",
+                "phone": "9466377983",
+                "gender": "F"
+              },
+              {
+                "id": 30,
+                "name": "Sneha Singh",
+                "email": "sneha.singh30@coditas.com",
+                "phone": "9362686020",
+                "gender": "F"
+              }
+            ]
+          },
+          "played": 0,
+          "wins": 0,
+          "losses": 0,
+          "points": 0,
+          "tiesWon": 0
+        },
+        {
+          "team": {
+            "id": 2,
+            "name": "Team 2",
+            "players": [
+              {
+                "id": 3,
+                "name": "Vikram Mehta",
+                "email": "vikram.mehta3@coditas.com",
+                "phone": "9483607385",
+                "gender": "M"
+              },
+              {
+                "id": 1,
+                "name": "Neha Sharma",
+                "email": "neha.sharma1@coditas.com",
+                "phone": "9245333607",
+                "gender": "M"
+              },
+              {
+                "id": 24,
+                "name": "Aarav Sharma",
+                "email": "aarav.sharma24@coditas.com",
+                "phone": "9651508361",
+                "gender": "F"
+              },
+              {
+                "id": 14,
+                "name": "Aditya Shah",
+                "email": "aditya.shah14@coditas.com",
+                "phone": "9648522902",
+                "gender": "F"
+              }
+            ],
+            "males": [
+              {
+                "id": 3,
+                "name": "Vikram Mehta",
+                "email": "vikram.mehta3@coditas.com",
+                "phone": "9483607385",
+                "gender": "M"
+              },
+              {
+                "id": 1,
+                "name": "Neha Sharma",
+                "email": "neha.sharma1@coditas.com",
+                "phone": "9245333607",
+                "gender": "M"
+              }
+            ],
+            "females": [
+              {
+                "id": 24,
+                "name": "Aarav Sharma",
+                "email": "aarav.sharma24@coditas.com",
+                "phone": "9651508361",
+                "gender": "F"
+              },
+              {
+                "id": 14,
+                "name": "Aditya Shah",
+                "email": "aditya.shah14@coditas.com",
+                "phone": "9648522902",
+                "gender": "F"
+              }
+            ]
+          },
+          "played": 0,
+          "wins": 0,
+          "losses": 0,
+          "points": 0,
+          "tiesWon": 0
+        },
+        {
+          "team": {
+            "id": 4,
+            "name": "Team 4",
+            "players": [
+              {
+                "id": 25,
+                "name": "Vikram Mehta",
+                "email": "vikram.mehta25@coditas.com",
+                "phone": "9567571054",
+                "gender": "M"
+              },
+              {
+                "id": 11,
+                "name": "Priya Shah",
+                "email": "priya.shah11@coditas.com",
+                "phone": "9243729634",
+                "gender": "M"
+              },
+              {
+                "id": 4,
+                "name": "Sneha Sharma",
+                "email": "sneha.sharma4@coditas.com",
+                "phone": "9590069560",
+                "gender": "F"
+              },
+              {
+                "id": 8,
+                "name": "Pooja Joshi",
+                "email": "pooja.joshi8@coditas.com",
+                "phone": "9160106614",
+                "gender": "F"
+              }
+            ],
+            "males": [
+              {
+                "id": 25,
+                "name": "Vikram Mehta",
+                "email": "vikram.mehta25@coditas.com",
+                "phone": "9567571054",
+                "gender": "M"
+              },
+              {
+                "id": 11,
+                "name": "Priya Shah",
+                "email": "priya.shah11@coditas.com",
+                "phone": "9243729634",
+                "gender": "M"
+              }
+            ],
+            "females": [
+              {
+                "id": 4,
+                "name": "Sneha Sharma",
+                "email": "sneha.sharma4@coditas.com",
+                "phone": "9590069560",
+                "gender": "F"
+              },
+              {
+                "id": 8,
+                "name": "Pooja Joshi",
+                "email": "pooja.joshi8@coditas.com",
+                "phone": "9160106614",
+                "gender": "F"
+              }
+            ]
+          },
+          "played": 0,
+          "wins": 0,
+          "losses": 0,
+          "points": 0,
+          "tiesWon": 0
+        },
+        {
+          "team": {
+            "id": 3,
+            "name": "Team 3",
+            "players": [
+              {
+                "id": 19,
+                "name": "Sneha Nair",
+                "email": "sneha.nair19@coditas.com",
+                "phone": "9206516031",
+                "gender": "M"
+              },
+              {
+                "id": 5,
+                "name": "Sneha Sharma",
+                "email": "sneha.sharma5@coditas.com",
+                "phone": "9138392568",
+                "gender": "M"
+              },
+              {
+                "id": 26,
+                "name": "Pooja Mehta",
+                "email": "pooja.mehta26@coditas.com",
+                "phone": "9134787913",
+                "gender": "F"
+              },
+              {
+                "id": 18,
+                "name": "Vikram Joshi",
+                "email": "vikram.joshi18@coditas.com",
+                "phone": "9531073153",
+                "gender": "F"
+              }
+            ],
+            "males": [
+              {
+                "id": 19,
+                "name": "Sneha Nair",
+                "email": "sneha.nair19@coditas.com",
+                "phone": "9206516031",
+                "gender": "M"
+              },
+              {
+                "id": 5,
+                "name": "Sneha Sharma",
+                "email": "sneha.sharma5@coditas.com",
+                "phone": "9138392568",
+                "gender": "M"
+              }
+            ],
+            "females": [
+              {
+                "id": 26,
+                "name": "Pooja Mehta",
+                "email": "pooja.mehta26@coditas.com",
+                "phone": "9134787913",
+                "gender": "F"
+              },
+              {
+                "id": 18,
+                "name": "Vikram Joshi",
+                "email": "vikram.joshi18@coditas.com",
+                "phone": "9531073153",
+                "gender": "F"
+              }
+            ]
+          },
+          "played": 0,
+          "wins": 0,
+          "losses": 0,
+          "points": 0,
+          "tiesWon": 0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Group B",
+      "teams": [
+        {
+          "id": 7,
+          "name": "Team 7",
+          "players": [
+            {
+              "id": 29,
+              "name": "Karan Nair",
+              "email": "karan.nair29@coditas.com",
+              "phone": "9922758281",
+              "gender": "M"
+            },
+            {
+              "id": 7,
+              "name": "Pooja Desai",
+              "email": "pooja.desai7@coditas.com",
+              "phone": "9253020781",
+              "gender": "M"
+            },
+            {
+              "id": 22,
+              "name": "Sneha Mehta",
+              "email": "sneha.mehta22@coditas.com",
+              "phone": "9242895048",
+              "gender": "F"
+            },
+            {
+              "id": 12,
+              "name": "Neha Nair",
+              "email": "neha.nair12@coditas.com",
+              "phone": "9184482374",
+              "gender": "F"
+            }
+          ],
+          "males": [
+            {
+              "id": 29,
+              "name": "Karan Nair",
+              "email": "karan.nair29@coditas.com",
+              "phone": "9922758281",
+              "gender": "M"
+            },
+            {
+              "id": 7,
+              "name": "Pooja Desai",
+              "email": "pooja.desai7@coditas.com",
+              "phone": "9253020781",
+              "gender": "M"
+            }
+          ],
+          "females": [
+            {
+              "id": 22,
+              "name": "Sneha Mehta",
+              "email": "sneha.mehta22@coditas.com",
+              "phone": "9242895048",
+              "gender": "F"
+            },
+            {
+              "id": 12,
+              "name": "Neha Nair",
+              "email": "neha.nair12@coditas.com",
+              "phone": "9184482374",
+              "gender": "F"
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "name": "Team 8",
+          "players": [
+            {
+              "id": 21,
+              "name": "Pooja Sharma",
+              "email": "pooja.sharma21@coditas.com",
+              "phone": "9988554160",
+              "gender": "M"
+            },
+            {
+              "id": 15,
+              "name": "Isha Singh",
+              "email": "isha.singh15@coditas.com",
+              "phone": "9870711887",
+              "gender": "M"
+            },
+            {
+              "id": 20,
+              "name": "Sneha Verma",
+              "email": "sneha.verma20@coditas.com",
+              "phone": "9540591431",
+              "gender": "F"
+            },
+            {
+              "id": 16,
+              "name": "Aarav Sharma",
+              "email": "aarav.sharma16@coditas.com",
+              "phone": "9718905860",
+              "gender": "F"
+            }
+          ],
+          "males": [
+            {
+              "id": 21,
+              "name": "Pooja Sharma",
+              "email": "pooja.sharma21@coditas.com",
+              "phone": "9988554160",
+              "gender": "M"
+            },
+            {
+              "id": 15,
+              "name": "Isha Singh",
+              "email": "isha.singh15@coditas.com",
+              "phone": "9870711887",
+              "gender": "M"
+            }
+          ],
+          "females": [
+            {
+              "id": 20,
+              "name": "Sneha Verma",
+              "email": "sneha.verma20@coditas.com",
+              "phone": "9540591431",
+              "gender": "F"
+            },
+            {
+              "id": 16,
+              "name": "Aarav Sharma",
+              "email": "aarav.sharma16@coditas.com",
+              "phone": "9718905860",
+              "gender": "F"
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Team 6",
+          "players": [
+            {
+              "id": 9,
+              "name": "Isha Sharma",
+              "email": "isha.sharma9@coditas.com",
+              "phone": "9478152023",
+              "gender": "M"
+            },
+            {
+              "id": 17,
+              "name": "Vikram Shah",
+              "email": "vikram.shah17@coditas.com",
+              "phone": "9979841576",
+              "gender": "M"
+            },
+            {
+              "id": 6,
+              "name": "Aarav Joshi",
+              "email": "aarav.joshi6@coditas.com",
+              "phone": "9975615742",
+              "gender": "F"
+            },
+            {
+              "id": 28,
+              "name": "Aarav Sharma",
+              "email": "aarav.sharma28@coditas.com",
+              "phone": "9835826153",
+              "gender": "F"
+            }
+          ],
+          "males": [
+            {
+              "id": 9,
+              "name": "Isha Sharma",
+              "email": "isha.sharma9@coditas.com",
+              "phone": "9478152023",
+              "gender": "M"
+            },
+            {
+              "id": 17,
+              "name": "Vikram Shah",
+              "email": "vikram.shah17@coditas.com",
+              "phone": "9979841576",
+              "gender": "M"
+            }
+          ],
+          "females": [
+            {
+              "id": 6,
+              "name": "Aarav Joshi",
+              "email": "aarav.joshi6@coditas.com",
+              "phone": "9975615742",
+              "gender": "F"
+            },
+            {
+              "id": 28,
+              "name": "Aarav Sharma",
+              "email": "aarav.sharma28@coditas.com",
+              "phone": "9835826153",
+              "gender": "F"
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "name": "Team 1",
+          "players": [
+            {
+              "id": 27,
+              "name": "Aditya Joshi",
+              "email": "aditya.joshi27@coditas.com",
+              "phone": "9328699076",
+              "gender": "M"
+            },
+            {
+              "id": 23,
+              "name": "Rohan Shah",
+              "email": "rohan.shah23@coditas.com",
+              "phone": "9879427418",
+              "gender": "M"
+            },
+            {
+              "id": 10,
+              "name": "Aarav Nair",
+              "email": "aarav.nair10@coditas.com",
+              "phone": "9766977859",
+              "gender": "F"
+            },
+            {
+              "id": 2,
+              "name": "Karan Kulkarni",
+              "email": "karan.kulkarni2@coditas.com",
+              "phone": "9307629262",
+              "gender": "F"
+            }
+          ],
+          "males": [
+            {
+              "id": 27,
+              "name": "Aditya Joshi",
+              "email": "aditya.joshi27@coditas.com",
+              "phone": "9328699076",
+              "gender": "M"
+            },
+            {
+              "id": 23,
+              "name": "Rohan Shah",
+              "email": "rohan.shah23@coditas.com",
+              "phone": "9879427418",
+              "gender": "M"
+            }
+          ],
+          "females": [
+            {
+              "id": 10,
+              "name": "Aarav Nair",
+              "email": "aarav.nair10@coditas.com",
+              "phone": "9766977859",
+              "gender": "F"
+            },
+            {
+              "id": 2,
+              "name": "Karan Kulkarni",
+              "email": "karan.kulkarni2@coditas.com",
+              "phone": "9307629262",
+              "gender": "F"
+            }
+          ]
+        }
+      ],
+      "standings": [
+        {
+          "team": {
+            "id": 7,
+            "name": "Team 7",
+            "players": [
+              {
+                "id": 29,
+                "name": "Karan Nair",
+                "email": "karan.nair29@coditas.com",
+                "phone": "9922758281",
+                "gender": "M"
+              },
+              {
+                "id": 7,
+                "name": "Pooja Desai",
+                "email": "pooja.desai7@coditas.com",
+                "phone": "9253020781",
+                "gender": "M"
+              },
+              {
+                "id": 22,
+                "name": "Sneha Mehta",
+                "email": "sneha.mehta22@coditas.com",
+                "phone": "9242895048",
+                "gender": "F"
+              },
+              {
+                "id": 12,
+                "name": "Neha Nair",
+                "email": "neha.nair12@coditas.com",
+                "phone": "9184482374",
+                "gender": "F"
+              }
+            ],
+            "males": [
+              {
+                "id": 29,
+                "name": "Karan Nair",
+                "email": "karan.nair29@coditas.com",
+                "phone": "9922758281",
+                "gender": "M"
+              },
+              {
+                "id": 7,
+                "name": "Pooja Desai",
+                "email": "pooja.desai7@coditas.com",
+                "phone": "9253020781",
+                "gender": "M"
+              }
+            ],
+            "females": [
+              {
+                "id": 22,
+                "name": "Sneha Mehta",
+                "email": "sneha.mehta22@coditas.com",
+                "phone": "9242895048",
+                "gender": "F"
+              },
+              {
+                "id": 12,
+                "name": "Neha Nair",
+                "email": "neha.nair12@coditas.com",
+                "phone": "9184482374",
+                "gender": "F"
+              }
+            ]
+          },
+          "played": 0,
+          "wins": 0,
+          "losses": 0,
+          "points": 0,
+          "tiesWon": 0
+        },
+        {
+          "team": {
+            "id": 8,
+            "name": "Team 8",
+            "players": [
+              {
+                "id": 21,
+                "name": "Pooja Sharma",
+                "email": "pooja.sharma21@coditas.com",
+                "phone": "9988554160",
+                "gender": "M"
+              },
+              {
+                "id": 15,
+                "name": "Isha Singh",
+                "email": "isha.singh15@coditas.com",
+                "phone": "9870711887",
+                "gender": "M"
+              },
+              {
+                "id": 20,
+                "name": "Sneha Verma",
+                "email": "sneha.verma20@coditas.com",
+                "phone": "9540591431",
+                "gender": "F"
+              },
+              {
+                "id": 16,
+                "name": "Aarav Sharma",
+                "email": "aarav.sharma16@coditas.com",
+                "phone": "9718905860",
+                "gender": "F"
+              }
+            ],
+            "males": [
+              {
+                "id": 21,
+                "name": "Pooja Sharma",
+                "email": "pooja.sharma21@coditas.com",
+                "phone": "9988554160",
+                "gender": "M"
+              },
+              {
+                "id": 15,
+                "name": "Isha Singh",
+                "email": "isha.singh15@coditas.com",
+                "phone": "9870711887",
+                "gender": "M"
+              }
+            ],
+            "females": [
+              {
+                "id": 20,
+                "name": "Sneha Verma",
+                "email": "sneha.verma20@coditas.com",
+                "phone": "9540591431",
+                "gender": "F"
+              },
+              {
+                "id": 16,
+                "name": "Aarav Sharma",
+                "email": "aarav.sharma16@coditas.com",
+                "phone": "9718905860",
+                "gender": "F"
+              }
+            ]
+          },
+          "played": 0,
+          "wins": 0,
+          "losses": 0,
+          "points": 0,
+          "tiesWon": 0
+        },
+        {
+          "team": {
+            "id": 6,
+            "name": "Team 6",
+            "players": [
+              {
+                "id": 9,
+                "name": "Isha Sharma",
+                "email": "isha.sharma9@coditas.com",
+                "phone": "9478152023",
+                "gender": "M"
+              },
+              {
+                "id": 17,
+                "name": "Vikram Shah",
+                "email": "vikram.shah17@coditas.com",
+                "phone": "9979841576",
+                "gender": "M"
+              },
+              {
+                "id": 6,
+                "name": "Aarav Joshi",
+                "email": "aarav.joshi6@coditas.com",
+                "phone": "9975615742",
+                "gender": "F"
+              },
+              {
+                "id": 28,
+                "name": "Aarav Sharma",
+                "email": "aarav.sharma28@coditas.com",
+                "phone": "9835826153",
+                "gender": "F"
+              }
+            ],
+            "males": [
+              {
+                "id": 9,
+                "name": "Isha Sharma",
+                "email": "isha.sharma9@coditas.com",
+                "phone": "9478152023",
+                "gender": "M"
+              },
+              {
+                "id": 17,
+                "name": "Vikram Shah",
+                "email": "vikram.shah17@coditas.com",
+                "phone": "9979841576",
+                "gender": "M"
+              }
+            ],
+            "females": [
+              {
+                "id": 6,
+                "name": "Aarav Joshi",
+                "email": "aarav.joshi6@coditas.com",
+                "phone": "9975615742",
+                "gender": "F"
+              },
+              {
+                "id": 28,
+                "name": "Aarav Sharma",
+                "email": "aarav.sharma28@coditas.com",
+                "phone": "9835826153",
+                "gender": "F"
+              }
+            ]
+          },
+          "played": 0,
+          "wins": 0,
+          "losses": 0,
+          "points": 0,
+          "tiesWon": 0
+        },
+        {
+          "team": {
+            "id": 1,
+            "name": "Team 1",
+            "players": [
+              {
+                "id": 27,
+                "name": "Aditya Joshi",
+                "email": "aditya.joshi27@coditas.com",
+                "phone": "9328699076",
+                "gender": "M"
+              },
+              {
+                "id": 23,
+                "name": "Rohan Shah",
+                "email": "rohan.shah23@coditas.com",
+                "phone": "9879427418",
+                "gender": "M"
+              },
+              {
+                "id": 10,
+                "name": "Aarav Nair",
+                "email": "aarav.nair10@coditas.com",
+                "phone": "9766977859",
+                "gender": "F"
+              },
+              {
+                "id": 2,
+                "name": "Karan Kulkarni",
+                "email": "karan.kulkarni2@coditas.com",
+                "phone": "9307629262",
+                "gender": "F"
+              }
+            ],
+            "males": [
+              {
+                "id": 27,
+                "name": "Aditya Joshi",
+                "email": "aditya.joshi27@coditas.com",
+                "phone": "9328699076",
+                "gender": "M"
+              },
+              {
+                "id": 23,
+                "name": "Rohan Shah",
+                "email": "rohan.shah23@coditas.com",
+                "phone": "9879427418",
+                "gender": "M"
+              }
+            ],
+            "females": [
+              {
+                "id": 10,
+                "name": "Aarav Nair",
+                "email": "aarav.nair10@coditas.com",
+                "phone": "9766977859",
+                "gender": "F"
+              },
+              {
+                "id": 2,
+                "name": "Karan Kulkarni",
+                "email": "karan.kulkarni2@coditas.com",
+                "phone": "9307629262",
+                "gender": "F"
+              }
+            ]
+          },
+          "played": 0,
+          "wins": 0,
+          "losses": 0,
+          "points": 0,
+          "tiesWon": 0
+        }
+      ]
+    }
+  ],
+  "timestamp": "2026-04-14T10:34:59.894Z",
+  "stats": {
+    "totalTeams": 8,
+    "totalGroups": 2,
+    "totalPlayers": 32
+  }
+}

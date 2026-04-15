@@ -1,0 +1,143 @@
+{
+  "teams": [
+    {
+      "id": 1,
+      "name": "Warriors",
+      "players": [
+        {
+          "id": 1,
+          "name": "Sneha Desai",
+          "email": "sneha.desai1@coditas.com",
+          "phone": "9800697158",
+          "gender": "M"
+        },
+        {
+          "id": 2,
+          "name": "Neha Desai",
+          "email": "neha.desai2@coditas.com",
+          "phone": "9278238748",
+          "gender": "F"
+        },
+        {
+          "id": 3,
+          "name": "Vikram Joshi",
+          "email": "vikram.joshi3@coditas.com",
+          "phone": "9813872815",
+          "gender": "M"
+        },
+        {
+          "id": 9,
+          "name": "Vikram Singh",
+          "email": "vikram.singh9@coditas.com",
+          "phone": "9354607104",
+          "gender": "M"
+        }
+      ],
+      "males": [
+        {
+          "id": 1,
+          "name": "Sneha Desai",
+          "email": "sneha.desai1@coditas.com",
+          "phone": "9800697158",
+          "gender": "M"
+        },
+        {
+          "id": 3,
+          "name": "Vikram Joshi",
+          "email": "vikram.joshi3@coditas.com",
+          "phone": "9813872815",
+          "gender": "M"
+        },
+        {
+          "id": 9,
+          "name": "Vikram Singh",
+          "email": "vikram.singh9@coditas.com",
+          "phone": "9354607104",
+          "gender": "M"
+        }
+      ],
+      "females": [
+        {
+          "id": 2,
+          "name": "Neha Desai",
+          "email": "neha.desai2@coditas.com",
+          "phone": "9278238748",
+          "gender": "F"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Beta",
+      "players": [
+        {
+          "id": 5,
+          "name": "Neha Mehta",
+          "email": "neha.mehta5@coditas.com",
+          "phone": "9585525422",
+          "gender": "M"
+        },
+        {
+          "id": 6,
+          "name": "Isha Nair",
+          "email": "isha.nair6@coditas.com",
+          "phone": "9409175530",
+          "gender": "F"
+        },
+        {
+          "id": 7,
+          "name": "Priya Nair",
+          "email": "priya.nair7@coditas.com",
+          "phone": "9857806210",
+          "gender": "M"
+        },
+        {
+          "id": 8,
+          "name": "Rohan Patel",
+          "email": "rohan.patel8@coditas.com",
+          "phone": "9414751138",
+          "gender": "F"
+        }
+      ],
+      "males": [
+        {
+          "id": 5,
+          "name": "Neha Mehta",
+          "email": "neha.mehta5@coditas.com",
+          "phone": "9585525422",
+          "gender": "M"
+        },
+        {
+          "id": 7,
+          "name": "Priya Nair",
+          "email": "priya.nair7@coditas.com",
+          "phone": "9857806210",
+          "gender": "M"
+        }
+      ],
+      "females": [
+        {
+          "id": 6,
+          "name": "Isha Nair",
+          "email": "isha.nair6@coditas.com",
+          "phone": "9409175530",
+          "gender": "F"
+        },
+        {
+          "id": 8,
+          "name": "Rohan Patel",
+          "email": "rohan.patel8@coditas.com",
+          "phone": "9414751138",
+          "gender": "F"
+        }
+      ]
+    }
+  ],
+  "groups": [],
+  "timestamp": "2026-04-15T05:34:20.280Z",
+  "stats": {
+    "totalTeams": 2,
+    "totalGroups": 0,
+    "totalPlayers": 8
+  }
+}

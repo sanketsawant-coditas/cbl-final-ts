@@ -1,0 +1,77 @@
+{
+  "teams": [
+    {
+      "id": 1,
+      "name": "Warriors",
+      "players": [
+        {
+          "id": 5,
+          "name": "Neha Singh",
+          "email": "neha.singh5@coditas.com",
+          "phone": "9726475668",
+          "gender": "M"
+        },
+        {
+          "id": 6,
+          "name": "Rohan Mehta",
+          "email": "rohan.mehta6@coditas.com",
+          "phone": "9412715242",
+          "gender": "F"
+        },
+        {
+          "id": 7,
+          "name": "Aarav Mehta",
+          "email": "aarav.mehta7@coditas.com",
+          "phone": "9442561365",
+          "gender": "M"
+        },
+        {
+          "id": 9,
+          "name": "Aditya Patel",
+          "email": "aditya.patel9@coditas.com",
+          "phone": "9636072279",
+          "gender": "M"
+        }
+      ],
+      "males": [
+        {
+          "id": 5,
+          "name": "Neha Singh",
+          "email": "neha.singh5@coditas.com",
+          "phone": "9726475668",
+          "gender": "M"
+        },
+        {
+          "id": 7,
+          "name": "Aarav Mehta",
+          "email": "aarav.mehta7@coditas.com",
+          "phone": "9442561365",
+          "gender": "M"
+        },
+        {
+          "id": 9,
+          "name": "Aditya Patel",
+          "email": "aditya.patel9@coditas.com",
+          "phone": "9636072279",
+          "gender": "M"
+        }
+      ],
+      "females": [
+        {
+          "id": 6,
+          "name": "Rohan Mehta",
+          "email": "rohan.mehta6@coditas.com",
+          "phone": "9412715242",
+          "gender": "F"
+        }
+      ]
+    }
+  ],
+  "groups": [],
+  "timestamp": "2026-04-15T06:08:47.142Z",
+  "stats": {
+    "totalTeams": 1,
+    "totalGroups": 0,
+    "totalPlayers": 4
+  }
+}
