@@ -60,16 +60,28 @@ class CBL {
     }
     // ---------- Manual team building (throws on error) ----------
     createTeam(name, playerIds) {
+        const errors = [];
         const players = [];
+        // First, check each ID for existence and duplication
         for (const id of playerIds) {
             const player = this.employees.find(e => e.id === id);
-            if (!player)
-                throw new Error(`Player with id ${id} not found`);
+            if (!player) {
+                errors.push(`Player with id ${id} not found`);
+                continue;
+            }
             const alreadyInTeam = this.teams.some(t => t.players.some(p => p.id === id));
-            if (alreadyInTeam)
-                throw new Error(`Player ${player.name} (id ${id}) is already in another team`);
-            players.push(player);
+            if (alreadyInTeam) {
+                errors.push(`Player ${player.name} (id ${id}) is already in another team`);
+            }
+            else {
+                players.push(player);
+            }
         }
+        // If any errors, throw them all at once
+        if (errors.length > 0) {
+            throw new Error(`Cannot create team "${name}":\n  - ` + errors.join('\n  - '));
+        }
+        // Then validate gender composition
         const males = players.filter(p => p.gender === 'M');
         const females = players.filter(p => p.gender === 'F');
         if (males.length !== constants_1.MALES_PER_TEAM || females.length !== constants_1.FEMALES_PER_TEAM) {

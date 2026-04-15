@@ -68,30 +68,47 @@ export class CBL {
   }
 
   // ---------- Manual team building (throws on error) ----------
-  createTeam(name: string, playerIds: number[]): this {
-    const players: Player[] = [];
-    for (const id of playerIds) {
-      const player = this.employees.find(e => e.id === id);
-      if (!player) throw new Error(`Player with id ${id} not found`);
-      const alreadyInTeam = this.teams.some(t => t.players.some(p => p.id === id));
-      if (alreadyInTeam) throw new Error(`Player ${player.name} (id ${id}) is already in another team`);
+
+createTeam(name: string, playerIds: number[]): this {
+  const errors: string[] = [];
+  const players: Player[] = [];
+
+  // First, check each ID for existence and duplication
+  for (const id of playerIds) {
+    const player = this.employees.find(e => e.id === id);
+    if (!player) {
+      errors.push(`Player with id ${id} not found`);
+      continue;
+    }
+    const alreadyInTeam = this.teams.some(t => t.players.some(p => p.id === id));
+    if (alreadyInTeam) {
+      errors.push(`Player ${player.name} (id ${id}) is already in another team`);
+    } else {
       players.push(player);
     }
-    const males = players.filter(p => p.gender === 'M');
-    const females = players.filter(p => p.gender === 'F');
-    if (males.length !== MALES_PER_TEAM || females.length !== FEMALES_PER_TEAM) {
-      throw new Error(`Team ${name} must have exactly ${MALES_PER_TEAM}M and ${FEMALES_PER_TEAM}F. Provided: ${males.length}M, ${females.length}F`);
-    }
-    this.teams.push({
-      id: this.teams.length + 1,
-      name,
-      players,
-      males,
-      females,
-    });
-    return this;
   }
 
+  // If any errors, throw them all at once
+  if (errors.length > 0) {
+    throw new Error(`Cannot create team "${name}":\n  - ` + errors.join('\n  - '));
+  }
+
+  // Then validate gender composition
+  const males = players.filter(p => p.gender === 'M');
+  const females = players.filter(p => p.gender === 'F');
+  if (males.length !== MALES_PER_TEAM || females.length !== FEMALES_PER_TEAM) {
+    throw new Error(`Team ${name} must have exactly ${MALES_PER_TEAM}M and ${FEMALES_PER_TEAM}F. Provided: ${males.length}M, ${females.length}F`);
+  }
+
+  this.teams.push({
+    id: this.teams.length + 1,
+    name,
+    players,
+    males,
+    females,
+  });
+  return this;
+}
   renameTeam(teamId: number, newName: string): this {
     const team = this.teams.find(t => t.id === teamId);
     if (!team) throw new Error(`Team with id ${teamId} not found`);
