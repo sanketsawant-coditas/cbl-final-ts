@@ -29,25 +29,51 @@ function generateFileName(): string {
   return `${nextNum}-cbl-${hours}.${minutes}.json`;
 }
 
+// src/jsonExporter.ts (updated)
 export function exportToJSON(cbl: CBL): void {
   ensureOutputDir();
   const fileName = generateFileName();
   const fullPath = path.join(OUTPUT_DIR, fileName);
 
-  // Generate fixtures from current groups
-  const fixtures = cbl.generateGroupFixtures();
+  // Clean teams: remove `males` and `females` arrays
+  const cleanTeams = cbl.getTeams().map(team => {
+    const { males, females, ...rest } = team;  // exclude males/females
+    return rest;
+  });
+
+  // Groups contain teams – we must also clean teams inside groups
+  const cleanGroups = cbl.getGroups().map(group => ({
+    ...group,
+    teams: group.teams.map(team => {
+      const { males, females, ...rest } = team;
+      return rest;
+    }),
+  }));
+
+  // Fixtures contain homeTeam and awayTeam – clean those too
+  const cleanFixtures = cbl.getFixtures().map(fx => ({
+    ...fx,
+    homeTeam: (() => {
+      const { males, females, ...rest } = fx.homeTeam;
+      return rest;
+    })(),
+    awayTeam: (() => {
+      const { males, females, ...rest } = fx.awayTeam;
+      return rest;
+    })(),
+  }));
 
   const data = {
-    teams: cbl.getTeams(),
-    groups: cbl.getGroups(),
-    fixtures: fixtures,                    
+    teams: cleanTeams,
+    groups: cleanGroups,
+    fixtures: cleanFixtures,
     timestamp: new Date().toISOString(),
     stats: {
       totalTeams: cbl.getTeams().length,
       totalGroups: cbl.getGroups().length,
       totalPlayers: cbl.getTeams().reduce((sum, t) => sum + t.players.length, 0),
-      totalFixtures: fixtures.length
-    }
+      totalFixtures: cbl.getFixtures().length,
+    },
   };
 
   fs.writeFileSync(fullPath, JSON.stringify(data, null, 2));
