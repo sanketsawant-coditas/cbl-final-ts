@@ -21,3 +21,14 @@ export interface Group {
   standings?: any[];
   qualifiedTeam?: Team;
 }
+
+
+// src/types.ts
+export interface Fixture {
+  id: number;
+  stage: 'group' | 'knockout';
+  groupName?: string;
+  homeTeam: Team;
+  awayTeam: Team;
+  result: any; 
+}

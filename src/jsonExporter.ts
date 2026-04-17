@@ -34,14 +34,19 @@ export function exportToJSON(cbl: CBL): void {
   const fileName = generateFileName();
   const fullPath = path.join(OUTPUT_DIR, fileName);
 
+  // Generate fixtures from current groups
+  const fixtures = cbl.generateGroupFixtures();
+
   const data = {
     teams: cbl.getTeams(),
     groups: cbl.getGroups(),
+    fixtures: fixtures,                    
     timestamp: new Date().toISOString(),
     stats: {
       totalTeams: cbl.getTeams().length,
       totalGroups: cbl.getGroups().length,
-      totalPlayers: cbl.getTeams().reduce((sum, t) => sum + t.players.length, 0)
+      totalPlayers: cbl.getTeams().reduce((sum, t) => sum + t.players.length, 0),
+      totalFixtures: fixtures.length
     }
   };
 

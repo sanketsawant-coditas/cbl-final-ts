@@ -1,4 +1,4 @@
-import { Player, Team, Group } from './types';
+import { Player, Team, Group, Fixture } from './types';
 import {
   PLAYERS_PER_TEAM,
   TEAMS_PER_GROUP,
@@ -29,6 +29,7 @@ export class CBL {
   private employees: Player[] = [];
   private teams: Team[] = [];
   private groups: Group[] = [];
+  private fixtures: Fixture[] = [];  
 
   // ---------- Employee management ----------
   loadEmployees(employees: Player[]): this {
@@ -68,51 +69,47 @@ export class CBL {
   }
 
   // ---------- Manual team building (throws on error) ----------
+  createTeam(name: string, playerIds: number[]): this {
+    const errors: string[] = [];
+    const players: Player[] = [];
 
-createTeam(name: string, playerIds: number[]): this {
-  const errors: string[] = [];
-  const players: Player[] = [];
-
-  // First, check each ID for existence and duplication
-  for (const id of playerIds) {
-    const player = this.employees.find(e => e.id === id);
-    if (!player) {
-      errors.push(`Player with id ${id} not found`);
-      continue;
+    for (const id of playerIds) {
+      const player = this.employees.find(e => e.id === id);
+      if (!player) {
+        errors.push(`Player with id ${id} not found`);
+        continue;
+      }
+      const alreadyInTeam = this.teams.some(t => t.players.some(p => p.id === id));
+      if (alreadyInTeam) {
+        errors.push(`Player ${player.name} (id ${id}) is already in another team`);
+      } else {
+        players.push(player);
+      }
     }
-    const alreadyInTeam = this.teams.some(t => t.players.some(p => p.id === id));
-    if (alreadyInTeam) {
-      errors.push(`Player ${player.name} (id ${id}) is already in another team`);
-    } else {
-      players.push(player);
+
+    if (errors.length > 0) {
+      throw new Error(`Cannot create team "${name}":\n  - ` + errors.join('\n  - '));
     }
+
+    const males = players.filter(p => p.gender === 'M');
+    const females = players.filter(p => p.gender === 'F');
+    if (males.length !== MALES_PER_TEAM || females.length !== FEMALES_PER_TEAM) {
+      throw new Error(`Team ${name} must have exactly ${MALES_PER_TEAM}M and ${FEMALES_PER_TEAM}F. Provided: ${males.length}M, ${females.length}F`);
+    }
+
+    this.teams.push({
+      id: this.teams.length + 1,
+      name,
+      players,
+      males,
+      females,
+    });
+    return this;
   }
 
-  // If any errors, throw them all at once
-  if (errors.length > 0) {
-    throw new Error(`Cannot create team "${name}":\n  - ` + errors.join('\n  - '));
-  }
-
-  // Then validate gender composition
-  const males = players.filter(p => p.gender === 'M');
-  const females = players.filter(p => p.gender === 'F');
-  if (males.length !== MALES_PER_TEAM || females.length !== FEMALES_PER_TEAM) {
-    throw new Error(`Team ${name} must have exactly ${MALES_PER_TEAM}M and ${FEMALES_PER_TEAM}F. Provided: ${males.length}M, ${females.length}F`);
-  }
-
-  this.teams.push({
-    id: this.teams.length + 1,
-    name,
-    players,
-    males,
-    females,
-  });
-  return this;
-}
   renameTeam(teamId: number, newName: string): this {
     const team = this.teams.find(t => t.id === teamId);
     if (!team) throw new Error(`Team with id ${teamId} not found`);
-
     team.name = newName;
     return this;
   }
@@ -128,9 +125,9 @@ createTeam(name: string, playerIds: number[]): this {
     if (!newPlayer) throw new Error(`New player ${newPlayerId} not found`);
 
     const alreadyInTeam = this.teams.some(t => t.id !== teamId && t.players.some(p => p.id === newPlayerId));
-    if (alreadyInTeam) throw new Error(`Player ${newPlayer.id} :${newPlayer.name}  is already in another team`);
-    team.players[oldIndex] = newPlayer;
+    if (alreadyInTeam) throw new Error(`Player ${newPlayer.id} :${newPlayer.name} is already in another team`);
 
+    team.players[oldIndex] = newPlayer;
     team.males = team.players.filter(p => p.gender === 'M');
     team.females = team.players.filter(p => p.gender === 'F');
 
@@ -148,7 +145,6 @@ createTeam(name: string, playerIds: number[]): this {
     if (index === -1) throw new Error(`Player ${playerId} not in team`);
 
     team.players.splice(index, 1);
-
     team.males = team.players.filter(p => p.gender === 'M');
     team.females = team.players.filter(p => p.gender === 'F');
 
@@ -160,7 +156,7 @@ createTeam(name: string, playerIds: number[]): this {
 
   // ---------- Automatic team building (throws on validation error) ----------
   buildTeams(): this {
-    const { males, females, completeTeams } = this.validateEmployees();
+     const { males, females, completeTeams } = this.validateEmployees();
     const usableMales = shuffle(males).slice(0, completeTeams * MALES_PER_TEAM);
     const usableFemales = shuffle(females).slice(0, completeTeams * FEMALES_PER_TEAM);
     const malePairs = chunk(usableMales, MALES_PER_TEAM);
@@ -176,34 +172,84 @@ createTeam(name: string, playerIds: number[]): this {
   }
 
   // ---------- Group creation (throws on validation error) ----------
-createGroups(): this {
-  // Instead of requiring MIN_GROUPS (2), just require at least 1 group (4 teams)
-  if (this.teams.length < TEAMS_PER_GROUP) {
-    throw new CBLError(
-      `Not enough teams to form a single group. Need at least ${TEAMS_PER_GROUP} teams, but only ${this.teams.length} available.`,
-      ERROR.NOT_ENOUGH_TEAMS,
-      { teamsFormed: this.teams.length, minRequired: TEAMS_PER_GROUP }
-    );
+  createGroups(): this {
+    if (this.teams.length < TEAMS_PER_GROUP) {
+      throw new CBLError(
+        `Not enough teams to form a single group. Need at least ${TEAMS_PER_GROUP} teams, but only ${this.teams.length} available.`,
+        ERROR.NOT_ENOUGH_TEAMS,
+        { teamsFormed: this.teams.length, minRequired: TEAMS_PER_GROUP }
+      );
+    }
+
+    const completeGroups = Math.floor(this.teams.length / TEAMS_PER_GROUP);
+    const usableTeams = shuffle(this.teams).slice(0, completeGroups * TEAMS_PER_GROUP);
+    this.groups = chunk(usableTeams, TEAMS_PER_GROUP).map((groupTeams, i) => ({
+      id: i + 1,
+      name: `Group ${String.fromCharCode(65 + i)}`,
+      teams: groupTeams,
+      standings: groupTeams.map(t => ({
+        team: t,
+        played: 0,
+        wins: 0,
+        losses: 0,
+        points: 0,
+        tiesWon: 0,
+      })),
+    }));
+    return this;
   }
 
-  const completeGroups = Math.floor(this.teams.length / TEAMS_PER_GROUP);
-  const usableTeams = shuffle(this.teams).slice(0, completeGroups * TEAMS_PER_GROUP);
-  this.groups = chunk(usableTeams, TEAMS_PER_GROUP).map((groupTeams, i) => ({
-    id: i + 1,
-    name: `Group ${String.fromCharCode(65 + i)}`,
-    teams: groupTeams,
-    standings: groupTeams.map(t => ({
-      team: t,
-      played: 0,
-      wins: 0,
-      losses: 0,
-      points: 0,
-      tiesWon: 0,
-    })),
-  }));
-  return this;
-}
+  // ---------- Fixture generation (chainable, stores internally) ----------
 
+  createAllFixtures(): this {
+    if (this.groups.length === 0) {
+      throw new Error('No groups found. Call createGroups() first.');
+    }
+    this.fixtures = [];
+    let fixtureId = 1;
+    for (const group of this.groups) {
+      const teams = group.teams;
+      for (let i = 0; i < teams.length; i++) {
+        for (let j = i + 1; j < teams.length; j++) {
+          this.fixtures.push({
+              id: fixtureId++,
+              stage: 'group',
+              groupName: group.name,   
+              homeTeam: teams[i],
+              awayTeam: teams[j],
+              result: null,
+            });
+        }
+      }
+    }
+    return this;
+  }
+
+
+  createFixturesForGroup(groupId: number): this {
+    const group = this.groups.find(g => g.id === groupId);
+    if (!group) {
+      throw new Error(`  Group with id ${groupId} not found.`);
+    }
+    this.fixtures = [];
+    let fixtureId = 1;
+    const teams = group.teams;
+    for (let i = 0; i < teams.length; i++) {
+      for (let j = i + 1; j < teams.length; j++) {
+        this.fixtures.push({
+          id: fixtureId++,
+          stage: 'group',
+          groupName: group.name,
+          homeTeam: teams[i],
+          awayTeam: teams[j],
+          result: null,
+        });
+      }
+    }
+    return this;
+  }
+
+  // ---------- Getters ----------
   getTeams(): Team[] {
     return this.teams;
   }
@@ -212,20 +258,33 @@ createGroups(): this {
     return this.groups;
   }
 
-  saveToJSON(filename: string = "cbl_data.json"): this {
-    const data = {
-      teams: this.teams,
-      groups: this.groups,
-      timestamp: new Date().toISOString(),
-      stats: {
-        totalTeams: this.teams.length,
-        totalGroups: this.groups.length,
-        totalPlayers: this.teams.reduce((sum, t) => sum + t.players.length, 0)
+  getFixtures(): Fixture[] {
+    return this.fixtures;
+  }
+
+  // ---------- Legacy fixture generation (returns array, does not store) ----------
+  generateGroupFixtures(): Fixture[] {
+    if (this.groups.length === 0) {
+      throw new Error('No groups created. Call createGroups() first.');
+    }
+    const fixtures: Fixture[] = [];
+    let fixtureId = 1;
+    for (const group of this.groups) {
+      const teams = group.teams;
+      for (let i = 0; i < teams.length; i++) {
+        for (let j = i + 1; j < teams.length; j++) {
+          fixtures.push({
+            id: fixtureId++,
+            stage: 'group',
+            groupName: group.name,
+            homeTeam: teams[i],
+            awayTeam: teams[j],
+            result: null,
+          });
+        }
       }
     }
-    const filePath = path.join(process.cwd(), filename);
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-    return this;
+    return fixtures;
   }
 
   // ---------- Private validations (throw CBLError) ----------
