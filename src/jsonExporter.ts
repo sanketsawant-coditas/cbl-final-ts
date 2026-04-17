@@ -2,14 +2,10 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { CBL } from './CBL';
+import { ensureDirectory, getProjectRoot } from './fileUtils';
 
-const OUTPUT_DIR = path.join(process.cwd(), 'cbl-output');
 
-function ensureOutputDir(): void {
-  if (!fs.existsSync(OUTPUT_DIR)) {
-    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  }
-}
+const OUTPUT_DIR = path.join(getProjectRoot(), 'cbl-output');
 
 function generateFileName(): string {
   const files = fs.readdirSync(OUTPUT_DIR);
@@ -29,19 +25,16 @@ function generateFileName(): string {
   return `${nextNum}-cbl-${hours}.${minutes}.json`;
 }
 
-// src/jsonExporter.ts (updated)
 export function exportToJSON(cbl: CBL): void {
-  ensureOutputDir();
+  ensureDirectory(OUTPUT_DIR);
   const fileName = generateFileName();
   const fullPath = path.join(OUTPUT_DIR, fileName);
 
-  // Clean teams: remove `males` and `females` arrays
   const cleanTeams = cbl.getTeams().map(team => {
-    const { males, females, ...rest } = team;  // exclude males/females
+    const { males, females, ...rest } = team;
     return rest;
   });
 
-  // Groups contain teams – we must also clean teams inside groups
   const cleanGroups = cbl.getGroups().map(group => ({
     ...group,
     teams: group.teams.map(team => {
@@ -50,7 +43,6 @@ export function exportToJSON(cbl: CBL): void {
     }),
   }));
 
-  // Fixtures contain homeTeam and awayTeam – clean those too
   const cleanFixtures = cbl.getFixtures().map(fx => ({
     ...fx,
     homeTeam: (() => {
