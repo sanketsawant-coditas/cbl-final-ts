@@ -18,17 +18,33 @@ export interface Group {
   id: number;
   name: string;
   teams: Team[];
-  standings?: any[];
   qualifiedTeam?: Team;
 }
 
 
-// src/types.ts
 export interface Fixture {
   id: number;
   stage: 'group' | 'knockout';
-  groupName?: string;
+  groupName: string;
   homeTeam: Team;
   awayTeam: Team;
   result: any; 
+}
+
+export interface Standing {
+  team: Team;
+  played: number;
+  wins: number;
+  losses: number;
+  points: number;
+  tiesWon: number;
+}
+
+
+export interface Group {
+  id: number;
+  name: string;
+  teams: Team[];
+  standings: Standing[];   
+  qualifiedTeam?: Team;
 }

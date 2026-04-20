@@ -4,12 +4,8 @@ exports.exportToJSON = exportToJSON;
 // src/jsonExporter.ts
 const fs = require("fs");
 const path = require("path");
-const OUTPUT_DIR = path.join(process.cwd(), 'cbl-output');
-function ensureOutputDir() {
-    if (!fs.existsSync(OUTPUT_DIR)) {
-        fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-    }
-}
+const fileUtils_1 = require("./fileUtils");
+const OUTPUT_DIR = path.join((0, fileUtils_1.getProjectRoot)(), 'cbl-output');
 function generateFileName() {
     const files = fs.readdirSync(OUTPUT_DIR);
     const pattern = /^(\d+)-cbl-.*\.json$/;
@@ -29,18 +25,42 @@ function generateFileName() {
     return `${nextNum}-cbl-${hours}.${minutes}.json`;
 }
 function exportToJSON(cbl) {
-    ensureOutputDir();
+    (0, fileUtils_1.ensureDirectory)(OUTPUT_DIR);
     const fileName = generateFileName();
     const fullPath = path.join(OUTPUT_DIR, fileName);
+    const cleanTeams = cbl.getTeams().map(team => {
+        const { males, females, ...rest } = team;
+        return rest;
+    });
+    const cleanGroups = cbl.getGroups().map(group => ({
+        ...group,
+        teams: group.teams.map(team => {
+            const { males, females, ...rest } = team;
+            return rest;
+        }),
+    }));
+    const cleanFixtures = cbl.getFixtures().map(fx => ({
+        ...fx,
+        homeTeam: (() => {
+            const { males, females, ...rest } = fx.homeTeam;
+            return rest;
+        })(),
+        awayTeam: (() => {
+            const { males, females, ...rest } = fx.awayTeam;
+            return rest;
+        })(),
+    }));
     const data = {
-        teams: cbl.getTeams(),
-        groups: cbl.getGroups(),
+        teams: cleanTeams,
+        groups: cleanGroups,
+        fixtures: cleanFixtures,
         timestamp: new Date().toISOString(),
         stats: {
             totalTeams: cbl.getTeams().length,
             totalGroups: cbl.getGroups().length,
-            totalPlayers: cbl.getTeams().reduce((sum, t) => sum + t.players.length, 0)
-        }
+            totalPlayers: cbl.getTeams().reduce((sum, t) => sum + t.players.length, 0),
+            totalFixtures: cbl.getFixtures().length,
+        },
     };
     fs.writeFileSync(fullPath, JSON.stringify(data, null, 2));
 }
