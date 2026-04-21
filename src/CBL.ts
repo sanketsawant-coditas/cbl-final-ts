@@ -150,26 +150,85 @@ export class CBL {
     return this;
   }
 
-  addManualResult(fixtureId: number, homeScores: [number, number, number], awayScores: [number, number, number]): this {
-    const fixture = this.fixtures.find(f => f.id === fixtureId);
+  addManualResult(data: {
+    fixtureId: number;
+    scores: {
+      MS: Record<number, number>;
+      WS: Record<number, number>;
+      XD: Record<number, number>;
+    };
+  }): this {
+    const fixture = this.fixtures.find(f => f.id === data.fixtureId);
     if (!fixture) {
-      throw new CBLError(`Fixture ${fixtureId} not found`, 'FIXTURE_NOT_FOUND', { fixtureId });
+      throw new CBLError(`Fixture ${data.fixtureId} not found`, 'FIXTURE_NOT_FOUND', { fixtureId: data.fixtureId });
     }
-    addManualResultToFixture(fixture, homeScores, awayScores);
 
-    // Immediately update standings
+    const homeId = fixture.homeTeam.id;
+    const awayId = fixture.awayTeam.id;
+    const expectedTeamIds = [homeId, awayId];
+
+    const categories = ["MS", "WS", "XD"] as const;
+    for (const cat of categories) {
+      const scoresObj = data.scores[cat];
+      const providedIds = Object.keys(scoresObj).map(Number).sort();
+      if (providedIds.length !== 2 || providedIds[0] !== expectedTeamIds[0] || providedIds[1] !== expectedTeamIds[1]) {
+        throw new CBLError(
+          `Invalid scores for ${cat}. Expected teams ${expectedTeamIds[0]} and ${expectedTeamIds[1]}, got ${providedIds.join(', ')}`,
+          'INVALID_SCORES'
+        );
+      }
+    }
+
+    const scores: any = {};
+    let homeWins = 0, awayWins = 0;
+    for (const cat of categories) {
+      const homeScore = data.scores[cat][homeId];
+      const awayScore = data.scores[cat][awayId];
+      const homeWon = homeScore > awayScore;
+      if (homeWon) homeWins++; else awayWins++;
+      scores[cat] = { home: homeScore, away: awayScore, winner: homeWon ? "home" : "away" };
+    }
+
+    const result = {
+      scores,
+      homeWins,
+      awayWins,
+      tieWinner: homeWins >= 2 ? "home" : "away",
+    };
+    fixture.result = result;
+
+    // Update standings (same as before)
     const standingsMap = new Map<number, any>();
     for (const group of this.groups) {
       for (const standing of group.standings) {
         standingsMap.set(standing.team.id, standing);
       }
     }
-    const homeStanding = standingsMap.get(fixture.homeTeam.id);
-    const awayStanding = standingsMap.get(fixture.awayTeam.id);
+    const homeStanding = standingsMap.get(homeId);
+    const awayStanding = standingsMap.get(awayId);
     if (!homeStanding || !awayStanding) {
       throw new CBLError("Standing not found for a team", "INTERNAL_ERROR");
     }
-    updateStandingsFromFixture(fixture, homeStanding, awayStanding);
+
+    for (const cat of categories) {
+      if (result.scores[cat].home > result.scores[cat].away) {
+        homeStanding.points++;
+      } else {
+        awayStanding.points++;
+      }
+    }
+    homeStanding.played++;
+    awayStanding.played++;
+    if (result.tieWinner === "home") {
+      homeStanding.tiesWon++;
+      homeStanding.wins++;
+      awayStanding.losses++;
+    } else {
+      awayStanding.tiesWon++;
+      awayStanding.wins++;
+      homeStanding.losses++;
+    }
+
     return this;
   }
 

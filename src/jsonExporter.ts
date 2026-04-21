@@ -1,11 +1,14 @@
-// src/jsonExporter.ts
 import * as fs from 'fs';
 import * as path from 'path';
 import { CBL } from './CBL';
-import { ensureDirectory, getProjectRoot } from './fileUtils';
 
+const OUTPUT_DIR = path.join(process.cwd(), 'cbl-output');
 
-const OUTPUT_DIR = path.join(getProjectRoot(), 'cbl-output');
+function ensureOutputDir(): void {
+  if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+  }
+}
 
 function generateFileName(): string {
   const files = fs.readdirSync(OUTPUT_DIR);
@@ -26,15 +29,17 @@ function generateFileName(): string {
 }
 
 export function exportToJSON(cbl: CBL): void {
-  ensureDirectory(OUTPUT_DIR);
+  ensureOutputDir();
   const fileName = generateFileName();
   const fullPath = path.join(OUTPUT_DIR, fileName);
 
+  // Clean teams: remove `males` and `females` arrays
   const cleanTeams = cbl.getTeams().map(team => {
     const { males, females, ...rest } = team;
     return rest;
   });
 
+  // Clean groups (teams inside groups also get cleaned)
   const cleanGroups = cbl.getGroups().map(group => ({
     ...group,
     teams: group.teams.map(team => {
@@ -43,17 +48,40 @@ export function exportToJSON(cbl: CBL): void {
     }),
   }));
 
-  const cleanFixtures = cbl.getFixtures().map(fx => ({
-    ...fx,
-    homeTeam: (() => {
-      const { males, females, ...rest } = fx.homeTeam;
-      return rest;
-    })(),
-    awayTeam: (() => {
-      const { males, females, ...rest } = fx.awayTeam;
-      return rest;
-    })(),
-  }));
+  // Transform fixtures: remove homeTeam/awayTeam, use teamIds, scores with team IDs, winnerTeamId
+  const cleanFixtures = cbl.getFixtures().map(fx => {
+    const { homeTeam, awayTeam, result, ...rest } = fx;
+    const teamIds = [homeTeam.id, awayTeam.id];
+    const homeId = homeTeam.id;
+    const awayId = awayTeam.id;
+
+    let scores = null;
+    let winnerTeamId = null;
+
+    if (result) {
+      // Build scores object with team IDs as keys
+      const scoresObj: any = {};
+      for (const cat of ["MS", "WS", "XD"]) {
+        const catScore = result.scores[cat];
+        if (catScore) {
+          scoresObj[cat] = {
+            [homeId]: catScore.home,
+            [awayId]: catScore.away,
+            winner: catScore.winner === "home" ? homeId : awayId,
+          };
+        }
+      }
+      scores = scoresObj;
+      winnerTeamId = result.tieWinner === "home" ? homeId : awayId;
+    }
+
+    return {
+      ...rest,
+      teamIds,
+      scores,
+      winnerTeamId,
+    };
+  });
 
   const data = {
     teams: cleanTeams,
